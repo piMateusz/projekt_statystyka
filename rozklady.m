@@ -1,23 +1,37 @@
 %% Generowanie rozk³adów 
 
-% Ka¿dy obraz osobno
+% rozk³ad Ka¿dego obrazu iso6400 osobno
 
 for i = 1:10
     figure(i)
-    histogram(iso6400_{i})
-    title('ISO6400')
+    histogram(iso6400(i, :))
+    xlabel('odcien')
+    ylabel('ilosc wystapien')
+    title(strcat('ISO6400-num', int2str(i)))
 end
+
+% rozk³ad Ka¿dego obrazu iso12800 osobno
 
 for i = 1:10
-    figure(i)
-    histogram(iso12800_{i})
-    title('ISO12800')
+    figure(i+10)
+    histogram(iso12800(i, :))
+    xlabel('odcien')
+    ylabel('ilosc wystapien')
+    title(strcat('ISO12800-num', int2str(i)))
 end
 
-% Dla wszystkich zdjêæ ³¹cznie
+% rozk³ad wszystkich zdjêæ iso6400 ³¹cznie
 
-histogram(iso6400) %iso6400 -> wektor sk³adaj¹cy siê z 10 wektorów zdjêæ
+figure(21)
+histogram(iso6400)
+xlabel('odcien')
+ylabel('ilosc wystapien')
 title('ISO6400 ³¹cznie')
 
-histogram(iso12800) %iso12800 -> analogiczny wektor
+% rozk³ad wszystkich zdjêæ iso12800 ³¹cznie
+
+figure(22)
+histogram(iso12800)
+xlabel('odcien')
+ylabel('ilosc wystapien')
 title('ISO12800 ³¹cznie')
