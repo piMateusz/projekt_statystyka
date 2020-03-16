@@ -9,6 +9,7 @@ for i = 1:10
     xlabel('wspolrzedna x piksela')
     ylabel('wspolrzedna y piksela')
     zlabel('odcien')
+    axis([0 100 0 100 0 65535])
 end
 
 for i = 1:10
@@ -20,4 +21,5 @@ for i = 1:10
     xlabel('wspolrzedna x piksela')
     ylabel('wspolrzedna y piksela')
     zlabel('odcien')
+    axis([0 100 0 100 0 65535])
 end
