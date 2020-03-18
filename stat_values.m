@@ -3,18 +3,18 @@
 % Dla ISO64000
 
 for i = 1:10000
-    % tymczasowa tablica przechowuj¹ca wartoœci w danym pikselu z 10 obrazków
+    % tymczasowa tablica przechowujÄ…ca wartoÅ›ci w danym pikselu z 10 obrazkÃ³w
     temp = ones(1,10);  
                         
     for j = 1:10
         temp(j) = iso6400(j,i);
+        std_for_each_iso6400(j) = std(iso6400(:,j));
+        var_for_each_iso6400(j) = var(iso6400(:,j));
     end
     
     mean_vec6400(i) = mean(temp);
     min_vec6400(i) = min(temp);
     max_vec6400(i) = max(temp);
-    std_vec6400(i) = std(temp);
-    var_vec6400(i) = var(temp);
 end
 
 % Dla ISO12800
@@ -24,14 +24,13 @@ for i = 1:10000
                         
     for j = 1:10
         temp(j) = iso12800(j,i);
+        std_for_each_iso12800(j) = std(iso12800(:,j));
+        var_for_each_iso12800(j) = var(iso12800(:,j));
     end
     
     mean_vec12800(i) = mean(temp);
     min_vec12800(i) = min(temp);
     max_vec12800(i) = max(temp);
-    std_vec12800(i) = std(temp);
-    var_vec12800(i) = var(temp);
-
 end
 
 % Porownanie wynikow
@@ -48,11 +47,12 @@ wart_max_iso6400 = max(max_vec6400)
 
 wart_max_iso12800 = max(max_vec12800)
 
-odch_std_iso6400 = std(std_vec6400)
+% odchylenie standardowe dla kazdego zdjecia
 
-odch_std_iso12800 = std(std_vec12800)
+std_for_each_iso6400
+std_for_each_iso12800
 
-wariancja_iso6400 = var(var_vec6400) % WARIANCJA - srednia arytmetyczna kwadratow ochylen
-
-wariancja_iso12800 = var(var_vec12800) 
-
+% WARIANCJA - srednia arytmetyczna kwadratow ochylen
+ 
+var_for_each_iso6400
+var_for_each_iso12800
